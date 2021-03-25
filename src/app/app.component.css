@@ -1,0 +1,26 @@
+/* 
+
+.nav-item{
+    
+    
+    color: white;
+    padding: 0px 25px;
+    text-align: center;
+    text-decoration: none;
+    display :inline-block;
+    margin:5px
+
+    
+}
+.nav-item:hover, .nav-item:Active{
+    background-color: Grey;
+}
+
+.navContainer{
+    background-color:cyan;
+    
+} */
+/* #nav{
+    overflow: hidden;
+    
+} */

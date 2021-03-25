@@ -1,0 +1,94 @@
+
+<div class="container col-lg-4"  style="background-color:pink;">
+
+<form [formGroup]="updateForm" (ngSubmit)="Update()" novalidate >
+<a routerLink= "/Accountlist"><button type="button" class="btn-close" aria-label="Close"></button></a>
+
+
+ <div class="mb-3 "  >
+  <label>Name:
+     
+    <input type="text" required formControlName="name" class="form-control"  aria-describedby ="Name"   >
+    
+  </label>
+  
+  </div>
+
+ 
+      <div class="col-xs-12 col-12 col-md-4 form-group">
+    <label>CreatedDate
+      <input type="text"
+            formControlName="CreatedDate"
+            placeholder="CreatedDate"
+            class="form-control"
+            bsDatepicker
+            [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }">
+   </label>
+    </div>
+
+   <div class="mb-3" >
+  <label>
+     Address:
+    <input type="text"  formControlName="address" class="form-control" aria-describedby ="address">
+  </label>
+  </div>
+
+   <div class="mb-3" >
+  <label>
+     CreatedBy:
+    <input type="text" formControlName="CreatedBy" class="form-control" aria-describedby ="CreatedBy">
+  </label>
+  </div>
+
+ 
+  
+  
+      <div class="col-xs-12 col-12 col-md-4 form-group">
+    <label>CreatedDate
+      <input type="text"
+            formControlName="ModifiedDate"
+            placeholder="ModifiedDate"
+            class="form-control"
+            bsDatepicker
+            [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }">
+   </label>
+    </div>
+
+
+   <div class="mb-3" >
+  <label>
+     ModifiedBy:
+    <input type="text" formControlName="ModifiedBy" class="form-control" aria-describedby ="ModifiedBy">
+  </label>
+  </div>
+
+   <div class="mb-3" >
+  <label>
+     Gender:
+    <input type="text" formControlName="Gender" class="form-control" aria-describedby ="Gender">
+  </label>
+  </div>
+
+   <div class="mb-3" >
+  <label>
+     Active:
+    <input type="text" formControlName="Active" class="form-control" aria-describedby ="Active">
+  </label>
+  </div>
+
+   <div class="mb-3" >
+  <label>
+     MobileNo:
+    <input  type="tel" formControlName="MobileNo" class="form-control" aria-describedby ="MobileNo" required >
+    
+  </label>
+       
+
+             
+  </div>
+
+   <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+
+</div>

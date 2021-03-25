@@ -1,0 +1,170 @@
+
+<!--<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>-->
+
+
+<div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create New Entry</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      
+
+
+  <form #simpleForm="ngForm" (ngSubmit)="submitFunction(simpleForm.value); simpleForm.reset()" >
+          <div class="form-group" [class.has-error]= "simpleFormName.invalid && simpleFormName.touched" >
+            <label for="name" >Name
+            <input type="text" required class="form-control" name="name" ngModel id="name" #simpleFormName="ngModel">
+            <span class="help-block" *ngIf="simpleFormName.invalid && simpleFormName.touched" class="alert alert-danger">This is required field</span>
+            </label>
+          </div>
+          
+         
+          <div class="row">
+            <div class="col-xs-12 col-12 col-md-4 form-group" [class.has-error]= "simpleFormDate.invalid && simpleFormDate.touched" >
+            <label>CreatedDate
+            <input type="text" 
+            name="CreatedDate"
+            required
+            ngModel
+            placeholder="Datepicker"
+            class="form-control"
+            #simpleFormDate="ngModel"
+            bsDatepicker
+            [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"
+            >
+            </label>
+            <span class="help-block" *ngIf="simpleFormDate.invalid && simpleFormDate.touched">This is required field</span>
+            </div>
+          </div>
+          <div class="form-group"[class.has-error]="simpleFormAddress.invalid && simpleFormAddress.touched">
+            <label for="address" class="col-form-label">address:
+            <input type="text" required class="form-control" name="address" ngModel id="address" #simpleFormAddress="ngModel">
+            </label>
+            <span class="help-block" *ngIf="simpleFormAddress.invalid && simpleFormAddress.touched">This is required field</span>
+          </div>
+          <div class="form-group">
+            <label for="CreatedBy" class="col-form-label">CreatedBy:</label>
+            <input type="text" class="form-control"name="CreatedBy" ngModel id="CreatedBy">
+          </div>
+          <div class="row">
+          <div class="col-xs-12 col-12 col-md-4 form-group">
+          <label>ModifiedDate 
+           <input type="text"
+            name= "ModifiedDate"
+            ngModel
+            placeholder="ModifiedDate"
+            class="form-control"
+            bsDatepicker
+            [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }">
+            </label>
+          </div>
+          </div>
+          <div class="form-group">
+            <label for="ModifiedBy" class="col-form-label">ModifiedBy:</label>
+            <input type="text" class="form-control"name="ModifiedBy" ngModel id="ModifiedBy">
+          </div>
+            <div class="form-group">
+           <label>
+            <input type="radio"   name="Gender" ngModel="Gender" id="Male" value="Male"> Male
+          </label>
+           </div>
+          <div class="form-group">
+           <label>
+            <input type="radio"   name="Gender" ngModel="Gender" id="Female" value="Female"> Female
+          </label>
+           </div>
+
+          <div class="form-group">
+          <label>
+          <input type="checkbox" name="Active" ngModel="Active" id="Active" Value="true">Active
+          </label>
+          </div>
+          <div class="form-group" [class.has-error]="MobileNo.touched && MobileNo.invalid">
+            <label for="MobileNo" class="control-label">MobileNo</label>
+            <input type="text" required pattern="^((\\+91-?)|0)?[0-9]{10}$"
+              class="form-control"
+               name="MobileNo"  
+               placeholder="eg: 9987982345"
+                ngModel="MobileNo" 
+                 id="MobileNo" 
+                  #MobileNo="ngModel" >
+            
+               <span class="help-block" *ngIf ="MobileNo.touched && MobileNo.errors?.required">This is required field</span>
+                <span class="help-block" *ngIf ="MobileNo.touched && MobileNo.errors?.pattern">Mobile Number is Invalid</span> 
+                            
+          </div>
+
+
+          
+          <input class="btn btn-primary"[disabled]="simpleForm.invalid" type="submit" value="Submit">
+
+          
+        </form>
+      </div>
+    </div>
+    </div>
+    
+    </div>
+  
+<div class="container">
+<div class="table-responsive">
+<table class="table table-expand-lg table-striped justify-content-center">
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>CreatedDate</th>
+<th>address</th>
+<th>CreatedBy</th>
+<th>ModifiedDate</th>
+<th>ModifiedBy</th>
+<th>Gender</th>
+<th>Active</th>
+<th>MobileNo</th>
+<th>Action</th>
+</tr>
+
+
+
+</thead>
+
+<tbody>
+        <tr *ngFor="let account of AccountList">
+        <td>{{account.id}}</td>
+        <td>{{account.name}}</td>
+        <td>{{account.CreatedDate}}</td>
+        <td>{{account.address}}</td>
+        <td>{{account.CreatedBy}}</td>
+        <td>{{account.ModifiedDate}}</td>
+        <td>{{account.ModifiedBy}}</td>
+        <td>{{account.Gender}}</td>
+        <td>{{account.Active}}</td>
+        <td>{{account.MobileNo}}</td>
+       
+       <a routerLink="/AccountUpdate/{{account.id}}"> <td><button type="button" class="btn btn-secondary">Update</button></td></a>
+       <td><button type="button" class="deletebtn" (click)="Delete(account.id)">Delete</button></td>
+
+        
+
+        
+        
+        
+        
+        </tr>
+</tbody>
+
+
+</table>
+
+<!--<button (click)="clickFunction()">Add Customer</button>-->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Add Customer
+</button>
+</div>
+</div>
+
