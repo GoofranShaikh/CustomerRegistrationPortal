@@ -1,8 +1,8 @@
 
 <div class="container col-lg-4"  style="background-color:pink;">
+<a routerLink= "/Accountlist" ><button type="button" class="btn-close"  aria-label="Close"></button></a>
+<form [formGroup]="updateForm" (ngSubmit)="Update()" novalidate  >
 
-<form [formGroup]="updateForm" (ngSubmit)="Update()" novalidate >
-<a routerLink= "/Accountlist"><button type="button" class="btn-close" aria-label="Close"></button></a>
 
 
  <div class="mb-3 "  >
@@ -62,17 +62,24 @@
   </label>
   </div>
 
-   <div class="mb-3" >
-  <label>
-     Gender:
-    <input type="text" formControlName="Gender" class="form-control" aria-describedby ="Gender">
-  </label>
-  </div>
+  <div class="form-group">
+           <label>Gender</label><br>
+            <input type="radio" formControlName="Gender"   name="Gender" class="form-radio-input"  id="Male" value="Male"> Male
+            
+          
+           </div>
+
+           <div class="form-group">
+           <label>
+            <input type="radio"formControlName="Gender"   name="Gender" class="form-radio-input" id="Female" value="Female"> Female
+          </label>
+           </div>
+
 
    <div class="mb-3" >
   <label>
      Active:
-    <input type="text" formControlName="Active" class="form-control" aria-describedby ="Active">
+    <input type="checkbox" formControlName="Active" class="form-check-input" aria-describedby ="Active">
   </label>
   </div>
 

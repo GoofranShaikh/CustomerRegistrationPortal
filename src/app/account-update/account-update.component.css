@@ -1,7 +1,8 @@
-/* .center_div{
-    margin: 0 auto;
-    width:150% 
-} */
-.btn-close{
-margin-left:470px
+.container{
+    border: 1px solid;
+    box-shadow: 10px,10px,10px,10px;
 }
+ .btn-close{
+position:absolute;
+left:470px;
+} 

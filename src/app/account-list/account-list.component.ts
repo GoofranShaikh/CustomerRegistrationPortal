@@ -5,6 +5,7 @@ import { endianness } from 'node:os';
 import { AccountService } from '../account.service';
 
 
+
 @Component({
   selector: 'app-account-list',
   templateUrl: './account-list.component.html',
@@ -13,19 +14,23 @@ import { AccountService } from '../account.service';
 export class AccountListComponent implements OnInit {
   
   
+  
 
   constructor(private service: AccountService) { }
   AccountList: any = [];
- 
+  
+  
  
  
 
 
   ngOnInit(): void {
     this.getAccountList();
-    let visibility=false
+  
+    
   }
   getAccountList() {
+    
     this.service.getAccountList().subscribe(data => {
       this.AccountList = data;
       // this.AccountList=data;
